@@ -1,0 +1,67 @@
+.kitjs-gallery-wrapper .kitjs-gallery-item-list {
+	margin: 0 auto;
+	width: 310px;
+	*width: 9999px;
+	width: 9999px\0;
+	height: 173px;
+	display: block;
+	position: static;
+	*position: absolute;
+	position: absolute\0;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-perspective: 1000px;
+	-moz-perspective: 1000px;
+	-o-perspective: 1000px;
+	-ms-perspective: 1000px;
+	perspective: 1000px;
+}
+.kitjs-gallery {
+	text-align: center;
+	overflow: visible;
+	*overflow: hidden;
+	overflow: hidden\0;
+}
+.kitjs-gallery-wrapper li {
+	float: none;
+	display: block;
+	position: absolute;
+	*position: static;
+	position: static\0;
+	*float: left;
+	float: left\0;
+	top: 0;
+	left: 0; 
+	-webkit-transition: all 500ms ease-out 0ms;
+	-moz-transition: all 500ms ease-out 0ms;
+	transition: all 500ms ease-out 0ms;
+	opacity: 0;
+}
+li.kitjs-gallery-item-selected {
+	-webkit-transform: translateX(0px) translateZ(0px) rotateY(0deg);
+	-moz-transform: translateX(0px) translateZ(0px) rotateY(0deg);
+	transform: translateX(0px) translateZ(0px) rotateY(0deg);
+	opacity: 1;
+}
+li.kitjs-gallery-item-previous {
+	-webkit-transform: translateX(-350px) translateZ(-200px) rotateY(45deg);
+	-moz-transform: translateX(-350px) translateZ(-200px) rotateY(45deg);
+	transform: translateX(-350px) translateZ(-200px) rotateY(45deg);
+	opacity: 0.75;
+}
+li.kitjs-gallery-item-next {
+	-webkit-transform: translateX(350px) translateZ(-200px) rotateY(-45deg);
+	-moz-transform: translateX(350px) translateZ(-200px) rotateY(-45deg);
+	transform: translateX(350px) translateZ(-200px) rotateY(-45deg);
+	opacity: 0.75;
+}
+.kitjs-gallery-control-panel {
+	margin-top: 20px;
+}
+.kitjs-gallery-wrapper li {
+	box-shadow: 0px 10px 20px rgba(0,0,0,0.3);
+	-moz-box-shadow: none;
+}

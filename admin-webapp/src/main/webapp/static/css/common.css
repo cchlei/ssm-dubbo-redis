@@ -1,0 +1,116 @@
+*{
+	border:none;
+	margin:0;
+	padding:0;
+	list-style: none;
+	font-weight:normal;
+	font-size:14px;
+	font-family:"微软雅黑";
+	text-decoration: none;
+	color:#333333;
+}
+.header{
+	overflow: hidden;
+	height:46px;
+	border-bottom:1px solid #ccc;
+	background:#fafafa;
+}
+.header .logo{
+	float:left;
+	padding:8px;
+}
+
+.content{
+	overflow:hidden;
+	width:100%;
+
+}
+.content .left-menu{
+	float:left;
+	width:16%;
+	height:1000px;
+	min-width:150px;
+	background-color:#3d3d3d;
+	position: relative;
+
+}
+.left-menu .list .active{
+	background-color:#27a9e3;
+	background-image:url(../images/arrow-check.jpg);
+	background-position: right 15px;
+	background-repeat: no-repeat;
+	_height:51px;
+}
+.left-menu .list .active .text{
+	background:none!important;
+	border-bottom:none;
+	height:21px;
+	
+}
+.left-menu .list .li{
+	border-bottom:1px solid #5c5c5c;
+}
+.left-menu .list .li .text{
+	padding:15px 0;
+	padding-left:16px;
+	height:21px;	
+	background:url(../images/arrow-l.jpg) no-repeat 95% center;
+}
+.left-menu .list .li .change{
+	background:url(../images/arrow-d.jpg) no-repeat 95% center;
+}
+.left-menu .list li img{
+	margin-right:10px;
+}
+.left-menu .list li span{
+	font-size:16px;
+	color:white;
+}
+.sub-list{
+	background:white;
+	
+}
+.sub-list li{
+	border-right:1px solid #eee;
+	padding:10px 0;
+	height:19px;
+	background:white;
+	padding-left:46px;
+	border-bottom:1px solid #eee;
+	min-width:10px;
+}
+
+.sub-list li a{
+	color:#333333;
+}
+.jt{
+	width:17px;
+	height:48px;
+	overflow: hidden;
+	padding:0!important;
+	border:none!important;
+	background: url(../images/jiantou.jpg) no-repeat 0 0!important;	
+	position: absolute;
+	right:-17px;
+	top:50%;
+	margin-top:-48px;
+}
+.changexx{	
+	padding:0!important;
+	border:none!important;
+	background: url(../images/jiantou.jpg) no-repeat 0 -48px!important;	
+	
+}
+.rightxx{
+	width:95%!important;
+	*width:95%;
+}
+
+
+.content .right{
+	float:left;
+	width:80%;
+	min-width:800px;
+	padding-left:2%;
+	padding-right:2%;
+}

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<description>Spring MVC Configuration</description>
+
+
+	<!-- 使用Annotation自动注册Bean,只扫描@Controller --><!-- base-package 如果多个，用“,”分隔 -->
+	<context:component-scan base-package="com.demo.*.controller" use-default-filters="false">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+		<context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice" />
+	</context:component-scan>
+
+	<!-- 启用MVC注解 -->
+	<mvc:annotation-driven validator="validator">
+		<mvc:message-converters register-defaults="true">
+			<bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
+				<property name="supportedMediaTypes">
+					<list>
+						<value>application/json;charset=UTF-8</value>
+						<value>text/html;charset=UTF-8</value>
+					</list>
+				</property>
+				<property name="features">
+					<list>
+						<value>WriteMapNullValue</value>
+						<value>QuoteFieldNames</value>
+					</list>
+				</property>
+			</bean>
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<constructor-arg value="UTF-8" />
+			</bean>
+		</mvc:message-converters>
+		<!-- <mvc:argument-resolvers>
+			<bean class="com.ikang.platform.web.method.support.SecureModelAttributeMethodArgumentResolver">
+			<constructor-arg value="false" />
+			</bean>
+			</mvc:argument-resolvers> -->
+	</mvc:annotation-driven>
+
+	<!-- 定义无Controller的path<->view直接映射 -->
+	<mvc:view-controller path="/" view-name="redirect:${web.view.index}" />
+
+	<!-- 静态资源映射 -->
+	<mvc:resources mapping="/favicon.ico" location="/favicon.ico" />
+	<mvc:resources mapping="/static/**" location="/static/" />
+<!-- 	<mvc:interceptors> -->
+<!-- 		<mvc:interceptor> -->
+<!-- 			<mvc:mapping path="/**" /> -->
+<!-- 			<mvc:exclude-mapping path="/static/**" /> -->
+<!-- 			<mvc:exclude-mapping path="/home/welcome" /> -->
+<!-- 			<mvc:exclude-mapping path="/guide/**" /> -->
+<!-- 			<mvc:exclude-mapping path="/account/**" /> -->
+<!-- 			<mvc:exclude-mapping path="/redis/**" /> -->
+<!-- 			<mvc:exclude-mapping path="/webregrecord/**" /> -->
+<!-- 			<mvc:exclude-mapping path="/webregister/**" /> -->
+<!-- 			<mvc:exclude-mapping path="/import/import_sim" /> -->
+<!-- 			<mvc:exclude-mapping path="/import/simimport" /> -->
+<!-- 			<mvc:exclude-mapping path="/regrecord/queryUntreated" /> -->
+<!-- 			<mvc:exclude-mapping path="/regrecord/saveFeedBack" /> -->
+<!-- 			<mvc:exclude-mapping path="/regrecord/download" /> -->
+<!-- 			<mvc:exclude-mapping path="/regrecord/searchHdDep" /> -->
+<!-- 			<mvc:exclude-mapping path="/regrecord/searchDep" /> -->
+<!-- 			<mvc:exclude-mapping path="/regrecord/searchDoctor" /> -->
+<!-- 			<mvc:exclude-mapping path="/regrecord/cancel/**" /> -->
+<!-- 			<mvc:exclude-mapping path="/regrecord/checkBoxCancel" /> -->
+<!-- 			<mvc:exclude-mapping path="/regrecord/saveMiss" /> -->
+<!-- 			<mvc:exclude-mapping path="/regrecord/queryProcessed" /> -->
+<!-- 			<mvc:exclude-mapping path="/regrecord/industryDownload" /> -->
+<!-- 			<mvc:exclude-mapping path="/regrecord/searchDep" /> -->
+<!-- 			<mvc:exclude-mapping path="/regrecord/searchHosp" /> -->
+<!-- 			<mvc:exclude-mapping path="/regrecord/searchArea" /> -->
+<!-- 			<mvc:exclude-mapping path="/regrecord/searchHdDep" /> -->
+			
+<!-- 			<mvc:exclude-mapping path="/sourcesDet/updateRTB" /> -->
+<!-- 			<mvc:exclude-mapping path="/sourcesDet/toAdd" /> -->
+<!-- 			<mvc:exclude-mapping path="/sourcesDet/dayList" /> -->
+<!-- 			<mvc:exclude-mapping path="/sourcesDet/saveNewDay" /> -->
+<!-- 			<mvc:exclude-mapping path="/sourcesDet/updateNum" /> -->
+<!-- 			<mvc:exclude-mapping path="/sourcesDet/delete/**"/> -->
+<!-- 			<mvc:exclude-mapping path="/stopAndVisit/save"/> -->
+<!-- 			<mvc:exclude-mapping path="/stopInfo/**"/> -->
+			
+<!-- 			<mvc:exclude-mapping path="/doctor/searchDep" /> -->
+<!-- 			<mvc:exclude-mapping path="/doctor/searchArea" /> -->
+<!-- 			<mvc:exclude-mapping path="/doctor/searchHosp" /> -->
+<!-- 			<mvc:exclude-mapping path="/doctor/searchHdDep" /> -->
+<!-- 			<mvc:exclude-mapping path="/doctor/searchEnableDep" /> -->
+<!-- 			<mvc:exclude-mapping path="/doctor/searchEnableArea" /> -->
+<!-- 			<mvc:exclude-mapping path="/doctor/searchEnableHosp" /> -->
+<!-- 			<mvc:exclude-mapping path="/doctor/searchEnableHdDep" /> -->
+			
+<!-- 			<mvc:exclude-mapping path="/register/resourceList" /> -->
+<!-- 			<mvc:exclude-mapping path="/register/getTimeSpan" /> -->
+<!-- 			<mvc:exclude-mapping path="/register/checkMobile" /> -->
+<!-- 			<mvc:exclude-mapping path="/register/getDateByMobile" /> -->
+<!-- 			<mvc:exclude-mapping path="/register/getDateByCardID" /> -->
+<!-- 			<mvc:exclude-mapping path="/register/getDateByMedicare" /> -->
+<!-- 			<mvc:exclude-mapping path="/register/patientList" /> -->
+<!-- 			<mvc:exclude-mapping path="/register/register" /> -->
+<!-- 			<mvc:exclude-mapping path="/register/vipResource" /> -->
+<!-- 			<mvc:exclude-mapping path="/register/vipregister" /> -->
+<!-- 			<mvc:exclude-mapping path="/register/sceneregister" /> -->
+<!-- 			<mvc:exclude-mapping path="/register/industry" /> -->
+<!-- 			<mvc:exclude-mapping path="/register/sendsms" /> -->
+<!-- 			<mvc:exclude-mapping path="/register/sendallsms" /> -->
+<!-- 			<mvc:exclude-mapping path="/register/sendcancelsms" /> -->
+<!-- 			<mvc:exclude-mapping path="/register/sendcancelallsms" /> -->
+<!-- 			<mvc:exclude-mapping path="/register/saveIndustry" /> -->
+<!-- 			<mvc:exclude-mapping path="/register/editIndustry" /> -->
+<!-- 			<mvc:exclude-mapping path="/register/processConsumer" /> -->
+			
+<!-- 			<mvc:exclude-mapping path="/error/toErrorJsp" /> -->
+<!-- 			<mvc:exclude-mapping path="/microstation/changeStatus" /> -->
+<!-- 			<mvc:exclude-mapping path="/showImage/**" /> -->
+<!-- 			<mvc:exclude-mapping path="/statistics/download" /> -->
+<!-- 			<mvc:exclude-mapping path="/agent/save" /> -->
+			
+<!-- 			<mvc:exclude-mapping path="/weixin/QRCode/**" /> -->
+<!-- 			<mvc:exclude-mapping path="/contenttemp/**" /> -->
+<!-- 			<mvc:exclude-mapping path="/news/toWeixinArticle/**"/> -->
+			
+<!-- 			<mvc:exclude-mapping path="/accom/**" /> -->
+<!-- 			<mvc:exclude-mapping path="/accomperson/**" /> -->
+			
+<!-- 			<mvc:exclude-mapping path="/schedule/**" /> -->
+			
+<!-- 			<bean class="com.ikang.pavo.util.SecurityInterceptor" /> -->
+<!-- 		</mvc:interceptor> -->
+<!-- 	</mvc:interceptors> -->
+	<!-- REST中根据URL后缀自动判定Content-Type及相应的View -->
+	<bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+		<property name="favorPathExtension" value="true" />
+		<property name="favorParameter" value="false" />
+		<property name="parameterName" value="format" />
+		<property name="ignoreAcceptHeader" value="false" />
+		<property name="mediaTypes">
+			<map>
+				<entry key="json" value="application/json" />
+			</map>
+		</property>
+		<!-- <property name="ignoreAcceptHeader" value="true" />
+			<property name="favorPathExtension" value="true" /> -->
+		<property name="defaultContentType" value="text/html" />
+	</bean>
+
+	<!-- 视图文件解析配置 -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="${web.view.prefix}" />
+		<property name="suffix" value="${web.view.suffix}" />
+	</bean>
+
+	<!-- 上传文件拦截，设置最大上传文件大小 10M=10*1024*1024(B)=10485760 bytes -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="${web.maxUploadSize}" />
+	</bean>
+
+
+	<context:property-placeholder ignore-unresolvable="true" location="classpath:properties/application.properties" file-encoding="UTF-8" />
+	<!-- 江西生产环境 -->
+<!-- 	<beans profile="jiangxi"> -->
+<!-- 		<context:property-placeholder ignore-resource-not-found="true" location="classpath:conf/application.jiangxi.properties" /> -->
+<!-- 	</beans> -->
+		<!-- 宁夏生产环境 -->
+<!-- 	<beans profile="ningxia"> -->
+<!-- 		<context:property-placeholder ignore-resource-not-found="true" file-encoding="UTF-8" location="classpath:/conf/application.ningxia.properties" /> -->
+<!-- 	</beans> -->
+	<!-- 开发环境 -->
+	<beans profile="dev">
+		<context:property-placeholder ignore-resource-not-found="true" location="classpath:/properties/application.dev.properties" />
+	</beans>
+</beans>

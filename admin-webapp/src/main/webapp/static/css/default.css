@@ -1,0 +1,79 @@
+/* 閻℃帒鎳庨惃顒備沪韫囨挾顔庨柨娑樼墛婢ф粓寮甸悮瀵哥閻忓繐绻嬬花锟� 768px闁挎冻鎷�*/
+/* 婵炲备鍓濆﹢浣圭鐠佸磭绉垮┑顖涘笂缂嶅寮婚妷顭戝殑闁烩晝顭堥崣褔鎯冮崟顏勬暕闁活喕绶ょ槐婵嬪炊閻樿精绀嬮弶鈺傜懃濠�锟� Bootstrap 濞戞搩鍘藉Σ鍛婎渶濡鍚囬柣銊ュ缁辨瑦娼诲Ο娆惧敹鐎靛府鎷稡ootstrap 闁哄嫷鍨充簺闁告柣鍔忛鏇熷緞閸ワ妇鍠橀柛蹇撶墢濞堟垿宕ュΔ瀣惞闁挎冻鎷�*/
+body {
+  font-size: 8px;
+  font-family: "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
+}
+
+.docs-header {
+  color: #b9c8e0;
+  background-color: #1d365d;
+}
+.topon{
+    margin-top: 5px;
+}
+
+.bottomon{
+  margin-bottom: 5px;
+}
+
+.anolink a:hover {
+    text-decoration:none;
+}
+
+#sidebar,#content{
+    border: 1px solid #e5e5e5;
+    border-radius:5px;
+    box-shadow: 0px 0px 20px #888888;
+    padding-top: 10px;
+}
+/*==========濞寸姰鍎扮粭鍛存焾閵娿儱鐎婚柡鍕煛alidform闊洤鎳橀妴蹇涙儍閿燂拷==========*/
+.Validform_checktip{
+  color:#999;
+  margin-top:10px;
+  overflow:hidden;
+  font-size:12px;
+}
+.Validform_right{
+  color:#71b83d;
+  padding-left:20px;
+  background:url('../img/right.png') no-repeat left center;
+}
+.Validform_wrong{
+  color:red;
+  padding-left:20px;
+  white-space:nowrap;
+  background:url('../img/error.png') no-repeat left center;
+}
+.Validform_loading{
+  padding-left:20px;
+  background:url('../img/onLoad.gif') no-repeat left center;
+}
+.Validform_error{
+  background-color:#ffe7e7;
+}
+input{
+	color: #000;
+}
+select{
+	height: 25px;
+	color: #000;
+	margin-top:2px;
+	margin-bottom:2px;
+}
+
+.sSelect{
+    width: 80px;
+}
+.mSelect{
+    width: 165px;
+}
+.lSelect{
+    width: 300px;
+}
+
+.table2{
+	width: 100%;
+    word-break: break-all;
+    table-layout: fixed;
+}

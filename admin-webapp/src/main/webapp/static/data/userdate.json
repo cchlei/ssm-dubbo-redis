@@ -1,0 +1,25 @@
+{
+    "proitem": [{
+        "id": 34,
+        "projectName": "华山医院",
+        "createTime": 1476337354000,
+        "dataString": null,
+        "areaString": "上海",
+        "contacts": "",
+        "phone": "",
+        "address": "",
+        "projectDesc": "",
+        "modifyTime": 1476337167375,
+        "user": {
+            "id": 16,
+            "username": "蔡颖",
+            "actor": "",
+            "area": "上海",
+            "createTime": 1475895666000,
+            "dataString": null,
+            "activty": "ACTIVE",
+            "email": ""
+        }
+    }],
+    "status": 0
+}

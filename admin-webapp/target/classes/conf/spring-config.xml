@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.1.xsd"
+	default-lazy-init="true">
+
+	<description>Spring Configuration</description>
+
+	<!-- <task:annotation-driven/> 
+	<bean id="myTimer" class="com.ikang.pavo.util.MyTimer"></bean>  
+  
+    <task:scheduled-tasks>  
+         
+            这里表示的是每隔五秒执行一次  
+
+      <task:scheduled ref="myTimer" method="myTimer" cron="0 0 */1 * * ?" />
+        <task:scheduled ref="myTimer" method="myTimer" cron="0/5 * *  * * ? " />  
+    </task:scheduled-tasks>   -->
+	
+	
+	<context:component-scan base-package="com.*.service.impl">
+		<!-- <context:include-filter type="annotation" expression="com.ikang.pavo.util.MyTimer" /> -->
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+	
+	
+	<!-- 开启AOP -->
+	<aop:config proxy-target-class="true" />
+
+<!-- 	<bean id="uploadUtils" class="com.ikang.pavo.util.UploadUtils"> -->
+<!-- 		<property name="uploadPath" value="${uploadPath}"></property> -->
+<!-- 	</bean> -->
+	
+	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="fallbackToSystemLocale" value="true" />
+		<property name="defaultEncoding" value="UTF-8" />
+			<property name="cacheSeconds" value="120"/>
+		<property name="basenames">
+			<list>
+				<value>classpath:org/hibernate/validator/ValidationMessages</value>
+				<value>classpath:in18n/valid</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- validator -->
+	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+		<property name="validationMessageSource" ref="messageSource" />
+	</bean>
+	
+    <!-- redis -->
+    <!-- 导入spring redis service -->
+<!-- 	<import resource="classpath*:/conf/spring-config-redis"/> -->
+	<import resource="spring-config-redis.xml" />
+	<!-- 导入客户端dubbo服务配置 -->
+	<import resource="spring-dubbo-server.xml" />
+
+	<context:property-placeholder ignore-unresolvable="true" location="classpath:properties/application.properties" file-encoding="UTF-8" />
+	<!-- 江西生产环境 -->
+<!-- 	<beans profile="jiangxi"> -->
+<!-- 		<context:property-placeholder ignore-resource-not-found="true" location="classpath:properties/application.jiangxi.properties" /> -->
+<!-- 	</beans> -->
+		<!-- 宁夏生产环境 -->
+<!-- 	<beans profile="ningxia"> -->
+<!-- 		<context:property-placeholder ignore-resource-not-found="true" file-encoding="UTF-8" location="classpath:/properties/application.ningxia.properties" /> -->
+<!-- 	</beans> -->
+	<!-- 开发环境 -->
+	<beans profile="dev">
+		<context:property-placeholder ignore-resource-not-found="true" location="classpath:/properties/application.dev.properties" />
+	</beans>
+</beans>

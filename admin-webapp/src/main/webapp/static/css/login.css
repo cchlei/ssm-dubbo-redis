@@ -1,0 +1,100 @@
+body{
+	position: relative;
+	overflow:hidden;
+}
+.bg{
+	width:100%;
+	height:100%;
+}
+
+.loginContainer{
+	width:352px;
+	position: absolute;
+	left:0;
+	top:0;
+}
+h1{
+	font-size:18px;
+	text-align: center;
+	color:white;
+	margin-bottom:20px;
+}
+.loginBox{
+	padding:20px 40px;
+	background:white;
+}
+
+
+.loginBox>input{
+	width:100%;
+	height:35px;
+	margin-top:15px;
+	padding-left:10%;
+	border:1px solid #ccc;
+	border-left:2px solid #35aa47;
+	line-height:35px;
+}
+
+.mSelect{
+    margin-top: 15px;
+    width: 274px;
+    border:1px solid #ccc;
+    height: 33px;
+}
+
+
+
+.loginBox input[type="text"]{
+	background: url(../images/login-user.jpg) no-repeat 7px center;
+}
+
+.loginBox input[type="password"]{
+	background: url(../images/login-suo.jpg) no-repeat 7px center;
+}
+
+.login{
+	overflow: hidden;
+}
+
+.login div{
+	float:left;
+}
+.loginBox input[type="checkbox"]{	
+	vertical-align: middle;
+}
+.login{
+	margin:22px 0;
+}
+.login label{
+	vertical-align: middle;
+	margin-left:6px;
+}
+.loginBox input[type="submit"]{
+	float:right;
+	background-color:#35aa47;
+	color:white;
+	border:none;
+	width:80px;
+	height:30px;
+	padding-right:20px;
+	background-image:url(../images/login-arrow.jpg);
+	background-repeat:no-repeat;
+	background-position:50px center;	
+}
+.loginBox .logo{
+	border-bottom:1px dashed  #eee;
+	border-top:1px dashed  #eee;
+	padding:25px 0
+}
+.loginBox .logo img{
+	display:block;
+	width:196px;
+	margin:0 auto;	
+}
+
+p{
+	text-align: center;
+	margin-top:15px;
+	color:white;
+	width: 100%;
+}
